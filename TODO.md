@@ -1,7 +1,7 @@
 # Create
 - Professional website / portfolio
 
-## 1. Fundamentos Web
+## 1. Web Fundamentals
 - **HTML5**
   - Estrutura semântica
   - SEO básico
@@ -104,12 +104,13 @@
   - Big-O Notation
 - **Sistemas Operacionais**
   - Processos vs Threads
-  - Memória (stack, heap, paginação)
+  - Memória (stack, heap, paginação, pointers)
   - Concorrência
 - **Networking avançado**
   - TCP vs UDP
   - Sockets
   - Protocolos comuns (HTTP/2, WebSocket)
+- **Kernel Etc / Lower levels**
 
 ---
 
