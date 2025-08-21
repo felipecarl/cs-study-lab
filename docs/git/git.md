@@ -23,3 +23,11 @@
   - `git remote add <alias> <url>`
   - in this case, `origin` will be an alias to the URL
   - the first remote is usually called `origin`
+
+## Fetch vs Push (Remotes)
+- Fetch is where the code is downloaded from, `git fetch` or `git pull`
+- Push is where the code is sent to/uploaded, `git push`
+
+## Origin vs Upstream
+- origin by convention is the default name for the original remote
+- but when a repo is forked, origin becames your fork remote, and the original creator remote is set as upstream

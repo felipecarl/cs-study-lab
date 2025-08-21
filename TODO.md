@@ -1,0 +1,122 @@
+# Create
+- Professional website / portfolio
+
+## 1. Fundamentos Web
+- **HTML5**
+  - Estrutura semântica
+  - SEO básico
+- **CSS3**
+  - SCSS / SASS / LESS
+  - Tailwind CSS
+- **JavaScript (Core / Vanilla)**
+  - Tipos e escopo
+  - Event loop
+  - Websockets
+  - Server-Sent Events (SSE)
+  - Webworkers
+- **TypeScript**
+  - Tipagem estática
+  - Interfaces e generics
+- **Git**
+  - Fluxos: monorepo, trunk-based
+  - GitHub / GitLab
+- **CLI & Shells**
+  - Bash / Zsh
+  - Scripts básicos
+- **Networking**
+  - HTTP / HTTPS
+  - DNS
+  - REST vs RPC
+- **Browser**
+
+
+---
+
+## 2. Frontend Moderno
+- **React**
+  - Hooks
+  - Context API
+  - State management
+    - Redux
+    - Zustand
+  - UI libraries: Material UI
+  - Storybook & Design Systems
+  - Testing
+    - Jest
+    - React Testing Library (RTL)
+    - Cypress
+- **React Native**
+- **Vue (overview)**
+- **Rendering Models**
+  - CSR / SSR / SSG
+  - Next.js
+  - Gatsby
+- **Build Tools**
+  - Webpack
+  - Babel
+  - Vite
+
+---
+
+## 3. Backend
+- **Node.js**
+  - Package managers: NPM, Yarn, PNPM
+  - Express.js (fundamentos)
+  - Nest.js
+- **APIs**
+  - REST APIs
+  - GraphQL
+  - Autenticação & Autorização
+    - JWT
+    - OAuth2
+- **Banco de Dados**
+  - SQL (conceitos e queries)
+  - Relational DBs (PostgreSQL, MySQL)
+  - NoSQL (MongoDB, conceitos de Document Store)
+
+---
+
+## 4. DevOps & Infra
+- **CI / CD**
+  - GitHub Actions
+  - Jenkins
+  - Git Hooks
+- **Containers**
+  - Docker (build, volumes, networking)
+- **Cloud (overview)**
+  - AWS/GCP/Azure (EC2, S3, Lambda)
+- **Observabilidade**
+  - Logging & Monitoring (conceitos)
+
+---
+
+## 5. Computer Science Basics
+- **Estruturas de Dados**
+  - Arrays, Linked Lists
+  - Stacks & Queues
+  - Trees & Graphs
+  - Hash Tables
+- **Algoritmos**
+  - Sorting & Searching
+  - Recursion
+  - Dynamic Programming (introdução)
+- **Complexidade**
+  - Big-O Notation
+- **Sistemas Operacionais**
+  - Processos vs Threads
+  - Memória (stack, heap, paginação)
+  - Concorrência
+- **Networking avançado**
+  - TCP vs UDP
+  - Sockets
+  - Protocolos comuns (HTTP/2, WebSocket)
+
+---
+
+## 6. Portfolio & Soft Skills
+- Build a professional website / portfolio
+- Practical projects with public GitHub repositories
+- Technical English (explain code, diagrams, interviews)
+- Interviews
+  - Technical (LeetCode / HackerRank)
+  - Behavioral (STAR method)
