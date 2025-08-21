@@ -1,6 +1,16 @@
 # Create
 - Professional website / portfolio
 
+## To add
+- https://roadmap.sh/typescript
+- https://roadmap.sh/nodejs
+- https://roadmap.sh/frontend
+- https://roadmap.sh/javascript
+- https://roadmap.sh/ios
+- https://roadmap.sh/blockchain
+- https://roadmap.sh/devops
+- https://roadmap.sh/computer-science
+
 ## 1. Web Fundamentals
 - **HTML5**
   - Estrutura semântica
