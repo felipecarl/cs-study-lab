@@ -55,6 +55,9 @@
     - Jest
     - React Testing Library (RTL)
     - Cypress
+  - Other
+    - ESLint
+    - Preetier
 - **React Native**
 - **Vue (overview)**
 - **Rendering Models**
