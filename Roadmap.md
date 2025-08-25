@@ -64,10 +64,12 @@
   - CSR / SSR / SSG
   - Next.js
   - Gatsby
+- **ThreeJs**
 - **Build Tools**
   - Webpack
   - Babel
   - Vite
+- **Web3**
 
 ---
 
@@ -96,6 +98,7 @@
   - Git Hooks
 - **Containers**
   - Docker (build, volumes, networking)
+  - Kubernetes
 - **Cloud (overview)**
   - AWS/GCP/Azure (EC2, S3, Lambda)
 - **Observabilidade**
