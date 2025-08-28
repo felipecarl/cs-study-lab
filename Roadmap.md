@@ -101,6 +101,7 @@
   - Kubernetes
 - **Cloud (overview)**
   - AWS/GCP/Azure (EC2, S3, Lambda)
+  - Terraform
 - **Observabilidade**
   - Logging & Monitoring (conceitos)
 
@@ -137,3 +138,10 @@
 - Interviews
   - Technical (LeetCode / HackerRank)
   - Behavioral (STAR method)
+
+
+## 7. My website
+- Daily Reads
+  - https://netflixtechblog.com/
+  - https://highscalability.com/
+  - https://stripe.com/blog/engineering
