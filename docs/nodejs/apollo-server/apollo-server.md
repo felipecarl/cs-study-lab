@@ -9,7 +9,7 @@
   - 3. Execute the corresponding resolvers
   - 4. Returns the JSON file
 - Analogy
-  - Schema (typeDefs): is the contract (the restaurant menu)
+  - Schema (typeDefs) = is the contract (the restaurant menu)
   - Resolvers = the kitchen (who prepares each plate of the menu)
   - Apollo Server = the waitress that receives the order, check if the menu has it, sends to the kitchen and then delivers the right plate
 

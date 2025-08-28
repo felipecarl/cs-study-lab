@@ -1,10 +1,10 @@
 # GraphQL
 
 ## Knowledge
+- SDL stands for `schema definition language`
 - Kinda like SQL but different
 - Query language developed for APIs and also a runtime (that is, an engine that solves the queries)
 - Created by Facebook
-
 
 ## Compared to REST
 - On REST, each entity has it's own endpoints, like `get /users`, `/users/:id/posts` and so on
@@ -12,8 +12,112 @@
 
 ## What does it solves
 - Overfetching (getting more data/fields than necessary)
-- Underfetching (getting not enough data, like querying for some data em the field `age` is not present, making it necessary to query another endpoint, more costly
+- Underfetching (getting not enough data, like querying for some data em the field `age` is not present, making it necessary to query another endpoint, more costly)
 - Strongly typed schema!
+- Should be written with the client/frontend in mind, providing decoupling from the actura data storage
+
+## Types
+- int, float, string, boolean, ID
+- own types can be created too
+
+
+## TypeDefs vs Schema
+| Aspecto           | TypeDefs                   | Schema                        |
+|-------------------|----------------------------|-------------------------------|
+| **Natureza**      | Declarativo                | Executável                    |
+| **Conteúdo**      | Apenas definições de tipos | Tipos + lógica de resolução   |
+| **Formato**       | String/SDL                 | Objeto GraphQLSchema          |
+| **Propósito**     | Definir estrutura          | Executar operações            |
+| **Reutilização**  | Facilmente compartilhável  | Específico para implementação |
+
+## Types
+```graphql
+type Character {
+  name: String!
+  appearsIn: [Episode!]!
+}
+```
+- `Character` is a `GraphQL Object Type`
+- `name` and `appearsIn` are fields of `Character` type
+- **Scalar** type, is the atomic value, meaning it cannot be dismounted, example: string is a string, cannot go further than this
+- `String!`, attention to the "!", that means this field is a **Non-Null type**, that GraphQL service will promise to give a value on this field
+- `[Episode!]!` represents a list type of the `Episode` object type, the `[]!` means its ensured to have an array with one o zero elements
+- As `Episode!` also have "!" then it means that the items inside the array will NOT be null, the array can be empty, but not have null items
+  Eg:
+    episodes: null ❌
+    episodes: [null] ❌
+    episodes: [] ✅
+
+## Arguments
+  ```graphql
+  type Starship {
+    id: ID!
+    name: String!
+    length(unit: LengthUnit = METER): Float
+  }
+  ```
+  - Arguments can be either required or optional, when the argument is optional, we can define a default value
+  - `length` field takes one argument called meter
+  - If `unit` argument is not passed, it will be set to `METER` by default
+  Can be used for a resolver like
+  ```graphql
+  Starship: {
+    length: (parent, args) => {
+      const meters = parent.lengthInMeters
+      if (args.unit === 'FOOT') {
+        return meters * 3.28084
+      }
+      return meters // default em metros
+    }
+  }
+  ```
+
+## Directives
+- Allow us to modify parts of a graphQL schema or operation by usin an `@` character followed by the directive name
+- Allow us to change how types, fields and arguments will be validated or executed
+- Built-in directives:
+  - `@deprecated` - annotates deprecated parts of the schema 
+    - eg:
+      ```graphql
+      type User {
+        fullName: String
+        name: String @deprecated(reason: "Use `fullName`.")
+      }
+      ```
+    - It's not necessary to define the `@deprecated` directive if using a GQL implementation that supports SDL, but it would be defined like this
+      ```graphql
+      directive @deprecated(
+        reason: String = "No longer supported"
+      ) on FIELD_DEFINITION | ENUM_VALUE
+      ```
+  - `@include(if: Boolean!)` - is a conditional, only includes the field if the exp is `true`
+    - eg:
+      ```graphql
+      query getUser($withEmail: Boolean!) {
+        user(id: 1) {
+          name
+          email @include(if: $withEmail)
+        }
+      }
+      ```
+  - `@skip(if: Boolean!)` - opposite of include, it will skip the field if the exp is `true`
+    - eg: 
+      ```graphql
+      query getUser($hideEmail: Boolean!) {
+        user(id: 1) {
+          name
+          email @skip(if: $hideEmail)
+        }
+      }
+      ```
+  - (GQL 2020+) `@specifiedBy` - scalates custom scalars, pointing to the URL that defines the specification of the type
+    - eg: 
+      ```graphql
+      scalar UUID @specifiedBy(url: "https://tools.ietf.org/html/rfc4122")
+      ```
+
+  
+  
 
 ## Basic Structure
 - 1. Schema: Defines types and operations
@@ -78,6 +182,30 @@
     }
   }
   ```
+
+## Concepts
+- TypeDefs
+  - Text written in SDL to describe types, queries, mutations...
+  - A raw definition of the API contract
+    Eg: 
+    ```graphql
+    type Author {
+      id: ID!
+      name: String!
+      books: [Book!]!
+    }
+    ```
+- Schema
+  - Is the executable obj that Apollo (or other graphql server) uses in runtime.
+  - Created using typeDefs + resolvers.
+  - Eg:
+    ```js
+    const schema = makeExecutableSchema({
+      typeDefs,
+      resolvers,
+    })
+    ```
+  
 
 ## Common Tools
 - Apollo Server/Cliente: much used in node + react
