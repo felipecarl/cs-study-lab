@@ -5,6 +5,7 @@
 - Kinda like SQL but different
 - Query language developed for APIs and also a runtime (that is, an engine that solves the queries)
 - Created by Facebook
+- SDL is a `domain-specific language`
 
 ## Compared to REST
 - On REST, each entity has it's own endpoints, like `get /users`, `/users/:id/posts` and so on
@@ -117,7 +118,73 @@ type Character {
       ```
 
   
-  
+## Fragments
+- Query level feature
+- Allows the client (dev) reuse selections of fields across queries
+- The fragment must be linked to a specific type of the schema, because the query can only be made if the type actually has those fields
+- the `on` keyword is to know which type this fragment is from
+- Without the fragment, each time i would have to rewrite the same fields
+- Eg:
+  ```graphql
+  query {
+    authors {
+      id
+      name
+      books {
+        id
+        title
+      }
+    }
+    author(id: "1") {
+      id
+      name
+      books {
+        id
+        title
+      }
+    }
+  }
+  ```
+  **>>to>>**
+  ```graphql
+  fragment AuthorFields on Author {
+    id
+    name
+    books {
+      id
+      title
+    }
+  }
+
+  query {
+    authors {
+      ...AuthorFields
+    }
+    author(id: "1") {
+      ...AuthorFields
+    }
+  }
+
+  ```
+
+## Errors
+- When errors are present, data + and structured `errors` array should be returned
+- Keep `message` user safe
+- Use `path` so the client knows what failed
+- Never leak stack traces or SQL messages to clients
+- Eg:
+  ```json
+  {
+    "data": { "user": { "id": "u1", "name": "Felipe", "email": null } },
+    "errors": [
+      {
+        "message": "Email is private",
+        "path": ["user", "email"],
+        "extensions": { "code": "FORBIDDEN" }
+      }
+    ]
+  }
+  ```
 
 ## Basic Structure
 - 1. Schema: Defines types and operations
