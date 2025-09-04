@@ -25,15 +25,38 @@ SQL -> sqlbolt.com
 - **HTML5**
   - Estrutura semântica
   - SEO básico
+  - Brower internals (HTML parsing, CSSOM, DOM, Render Tree, layout, paint, composite)
+  - HTTP basics (request/response, headers, status codes, caching)
+  - client-side vs server-side rendering
+  - Scripts loading (defer, async)
+  - Storage: cookies, localStorage, sessionStorage, IndexedDB
+  - Security basics: CORS, Same-Origin Policy, XSS
+  - Estrutura semântica real (usar <main>, <aside>, <figure>, <article>, <nav>)
+  - Formulários avançados: validação customizada com atributos (pattern, required), inputs especiais (date, range, color)
+  - Acessibilidade (uso correto de alt, roles, aria-label, navegação por teclado)
+  - Modern tags: <template>, <slot>, <dialog>, <canvas>, <svg>
+  - SEO básico: meta tags, headings bem estruturados
 - **CSS3**
   - SCSS / SASS / LESS
   - Tailwind CSS
+  - Box model avançado (shrink/grow no flex, min/max-content, intrinsic sizing)
+  - Flexbox e Grid em profundidade (layouts responsivos reais)
+  - Position e z-index (stacking context, como o navegador empilha camadas)
+  - Transições e animações (@keyframes, easing, performance de animações)
+  - Variáveis CSS (--color) + theming (dark/light mode)
+  - Pseudo-classes/pseudo-elementos avançados (:nth-of-type, :focus-within, ::before, ::after)
+  - Técnicas modernas de responsividade (clamp(), min(), max())
 - **JavaScript (Core / Vanilla)**
   - Tipos e escopo
   - Event loop
   - Websockets
   - Server-Sent Events (SSE)
   - Webworkers
+  - Event Loop 
+    - call stack
+    - Web APIs
+    - task queue
+    - microtasks
   - Arrays
     - ⁠Array Buffer & Typed Arrays
     - ⁠Array Destructuring
@@ -47,80 +70,106 @@ SQL -> sqlbolt.com
   - ⁠Canvas API
   - ⁠Clean Code Practices in JavaScript
   - ⁠Client-Side Routing
-１２.⁠ ⁠Closures
-１３.⁠ ⁠Code Splitting
-１４.⁠ ⁠Cross-Browser Compatibility
-１５.⁠ ⁠Cross-Origin Resource Sharing (CORS)
-１６.⁠ ⁠Currying
-１７.⁠ ⁠Custom Events
-１８.⁠ ⁠Debounce vs Throttle
-１９.⁠ ⁠Debouncing and Throttling
-２０.⁠ ⁠Deep vs. Shallow Copy
-２１.⁠ ⁠Design Patterns (Observer, Singleton, Factory, etc.)
-２２.⁠ ⁠Destructuring
-２３.⁠ ⁠Destructuring Assignment
-２４.⁠ ⁠Destructuring Nested Objects/Arrays
-２５.⁠ ⁠DOM Manipulation
-２６.⁠ ⁠Dynamic Imports
-２７.⁠ ⁠Dynamic Typing
-２８.⁠ ⁠Equality Operators (== vs ===)
-２９.⁠ ⁠Error Boundaries (in React.js)
-３０.⁠ ⁠Error Handling (Try/Catch/Throw)
-３１.⁠ ⁠ES6 Features (Arrow Functions, Classes, Modules, Destructuring)
-３２.⁠ ⁠Event Bubbling and Capturing
-３３.⁠ ⁠Event Delegation
-３４.⁠ ⁠Event Handling (addEventListener)
-３５.⁠ ⁠Event Loop
-３６.⁠ ⁠Fetch API
-３７.⁠ ⁠Functions
-３８.⁠ ⁠Generator Functions
-３９.⁠ ⁠Geolocation API
-４０.⁠ ⁠Geolocation vs Location Services
-４１.⁠ ⁠Global and Local Object (window, globalThis)
-４２.⁠ ⁠Hoisting
-４３.⁠ ⁠IIFE (Immediately Invoked Function Expression)
-４４.⁠ ⁠Inheritance (Class-based, Prototype-based)
-４５.⁠ ⁠Intersection Observer API
-４６.⁠ ⁠JavaScript Memory Management (Garbage Collection)
-４７.⁠ ⁠JavaScript vs ECMAScript
-４８.⁠ ⁠JSON (JavaScript Object Notation)
-４９.⁠ ⁠Lazy Loading
-５０.⁠ ⁠Map and Set
-５１.⁠ ⁠Memoization
-５２.⁠ ⁠Methods
-５３.⁠ ⁠Module Pattern
-５４.⁠ ⁠Modules (Import/Export)
-５５.⁠ ⁠MutationObserver
-５６.⁠ ⁠NaN (Not a Number)
-５７.⁠ ⁠Object
-５８.⁠ ⁠Object Literal Shorthand
-５９.⁠ ⁠Object.assign()
-６０.⁠ ⁠Performance Optimization
-６１.⁠ ⁠Polyfills
-６２.⁠ ⁠Promise.all()
-６３.⁠ ⁠Promises
-６４.⁠ ⁠Prototypal Inheritance
-６５.⁠ ⁠RegEx (Regular Expressions)
-６６.⁠ ⁠Scope (Function vs Block Scope)
-６７.⁠ ⁠Service Workers
-６８.⁠ ⁠Set and Map Iteration
-６９.⁠ ⁠Set vs Map
-７０.⁠ ⁠SetTimeout and SetInterval
-７１.⁠ ⁠Shadow DOM
-７２.⁠ ⁠Template Literals
-７３.⁠ ⁠Shadowing
-７４.⁠ ⁠Spread & Rest Operators
-７５.⁠ ⁠Strict Mode
-７６.⁠ ⁠SVG Manipulation
-７７.⁠ ⁠Web Workers & WebSockets
-７８.⁠ ⁠This Keyword
-７９.⁠ ⁠Boolean Values
-８０.⁠ ⁠let, var & const
-８１.⁠ ⁠Type Coercion vs Type Conversion
-８２.⁠ ⁠URL API (URLSearchParams, URL objects)
-８３.⁠ ⁠WeakMap & WeakSet
-８４.⁠ ⁠Web Animations
-８５.⁠ ⁠localStorage & sessionStorage
+  - ⁠Closures
+  - ⁠Code Splitting
+  - ⁠Cross-Browser Compatibility
+  - ⁠Cross-Origin Resource Sharing (CORS)
+  - Currying
+  - ⁠Custom Events
+  - ⁠Debounce vs Throttle
+  - ⁠Debouncing and Throttling
+  - ⁠Deep vs. Shallow Copy
+  - ⁠Design Patterns (Observer, Singleton, Factory, etc.)
+  - ⁠Destructuring
+  - ⁠Destructuring Assignment
+  - ⁠Destructuring Nested Objects/Arrays
+  - ⁠DOM Manipulation
+  - ⁠Dynamic Imports
+  - ⁠Dynamic Typing
+  - ⁠Equality Operators (== vs ===)
+  - ⁠Error Boundaries (in React.js)
+  - ⁠Error Handling (Try/Catch/Throw)
+  - ⁠ES6 Features (Arrow Functions, Classes, Modules, Destructuring)
+  - ⁠Event Bubbling and Capturing
+  - ⁠Event Delegation
+  - ⁠Event Handling (addEventListener)
+  - ⁠Event Loop
+  - ⁠Fetch API
+  - ⁠Functions
+  - ⁠Generator Functions
+  - ⁠Geolocation API
+  - ⁠Geolocation vs Location Services
+  - ⁠Global and Local Object (window, globalThis)
+  - ⁠Hoisting
+  - ⁠IIFE (Immediately Invoked Function Expression)
+  - ⁠Inheritance (Class-based, Prototype-based)
+  - ⁠Intersection Observer API
+  - ⁠JavaScript Memory Management (Garbage Collection)
+  - ⁠JavaScript vs ECMAScript
+  - ⁠JSON (JavaScript Object Notation)
+  - ⁠Lazy Loading
+  - ⁠Map and Set
+  - ⁠Memoization
+  - ⁠Methods
+  - ⁠Module Pattern
+  - ⁠Modules (Import/Export)
+  - ⁠MutationObserver
+  - ⁠NaN (Not a Number)
+  - ⁠Object
+  - ⁠Object Literal Shorthand
+  - ⁠Object.assign()
+  - ⁠Performance Optimization
+  - ⁠Polyfills
+  - ⁠Promise.all()
+  - ⁠Promises
+  - ⁠Prototypal Inheritance
+  - ⁠RegEx (Regular Expressions)
+  - ⁠Scope (Function vs Block Scope)
+  - ⁠Service Workers
+  - ⁠Set and Map Iteration
+  - ⁠Set vs Map
+  - ⁠SetTimeout and SetInterval
+  - ⁠Shadow DOM
+  - ⁠Template Literals
+  - ⁠Shadowing
+  - ⁠Spread & Rest Operators
+  - ⁠Strict Mode
+  - ⁠SVG Manipulation
+  - ⁠Web Workers & WebSockets
+  - ⁠This Keyword
+  - ⁠Boolean Values
+  - ⁠let, var & const
+  - ⁠Type Coercion vs Type Conversion
+  - ⁠URL API (URLSearchParams, URL objects)
+  - ⁠WeakMap & WeakSet
+  - ⁠Web Animations
+  - ⁠localStorage & sessionStorage
+  - A. Fundamentos do JS
+    - Tipos, coercion, == vs ===
+    - Scope, closures, hoisting, contexto (this)
+    - Prototypes, herança, classes ES6
+    - Funções: declarativas, arrow, callbacks
+  - B. DOM e Eventos
+    - Seleção/manipulação (querySelector, classList, style)
+    - Criação dinâmica (createElement, appendChild)
+    - Event bubbling, capturing, delegation
+    - Custom events (new CustomEvent)
+  - C. Async e Browser APIs
+    - setTimeout, setInterval, Promise, async/await
+    - Fetch API, tratamento de erros (try/catch)
+    - Web APIs: Geolocation, Clipboard, IntersectionObserver, MutationObserver
+    - WebSockets / EventSource (SSE)
+  - D. Patterns
+    - Módulos (import/export)
+    - Observer Pattern (pub/sub em vanilla)
+    - Factory e Singleton com funções/classes
+    - Debounce & Throttle
+  - 5️⃣ Web Components & Arquitetura sem Framework
+    - Custom Elements (customElements.define)
+    - Shadow DOM (encapsulamento de estilo e DOM)
+    - Slots e <template>
+    - Como organizar componentes reutilizáveis
+    - State management simples (eventos + pub/sub)
 - **TypeScript**
   - Tipagem estática
   - Interfaces e generics
