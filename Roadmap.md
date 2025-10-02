@@ -2,6 +2,12 @@
 - Professional website / portfolio
 
 
+## To Watch
+https://www.youtube.com/playlist?list=PL5LiOvrbVo8keeEWRZVaHfprU4zQTCsV4
+https://www.youtube.com/playlist?list=PL5LiOvrbVo8nPTtdXAdSmDWzu85zzdgRT
+
+
+
 # Knowledge sources
 HTML -> w3schools.com
 CSS -> codeacademy.com

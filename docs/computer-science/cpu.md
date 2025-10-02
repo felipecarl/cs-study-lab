@@ -15,6 +15,17 @@
 - 32 or 64 bits for example, is the amount of bits of length for an instruction
 - Example in a 8 bit, 4 bits are the instruction and the rest is the address, this is called `immediate value`
 
+## x86 vs ARM
+- x86
+  - x86 is more focused on performance
+  - Based on CISC (complex instrction set computer)
+  - Offer more instructions, but more power is required to decode them
+- ARM
+  - ARM is more focused on efficiency
+  - Based on RISC (reduced instruction set computer)
+  - Can be used emulation to run x86 in them
+  - More widely used, in electronic devices such as smartphones, tablets, multimedia players and other mobibe devices like wearables, because of the reduced instruction set, less transistors are required, enabling a smaller die size for the IC
+
 ## Cache
 - Loading data to and from RAM takes time, so a clever solution for that is to have a small storage inside the CPU, so it is closer to it, this is called a cache
 - The values are transmited in blocks to the cache
