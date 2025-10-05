@@ -15,6 +15,7 @@
 ## Concurrency
 - Each core can only handle one process each time, by switching between process very fast, depending on many factors but on some cpus it takes around µs to switch context between processes
 - This makes the user feel like the experience is seamless, looking like everithing is running in parallel
+- And, maximize computer resources usage
 
 ## Kernel
 - Is a software component
@@ -68,6 +69,7 @@
     - Everytime we add a new frame, we need to keep track of the top of the stack, this address is called the "stack pointer" and for example in a x86 cpu it is stored in a special register
     - When the function returns, the stack pointer goes back to the top of the previous function, like for example if the tree fn calls, branch, that calls leaf, when leaf returns, the stack pointer returns to the top of branch
     - We dont have to delete those addressess because they will get overwritten at some point
+    - Threads are a way to inform the operating system that specific parts of a program can be executed concurrently
 
     #### Stack boundary
     - Is another pointer that is kept track of on another register
@@ -85,6 +87,14 @@
 - Have TCBs(thread control block) that manage execution state
 - Share the same PCB of the parent process
 - Shared memory space between other threads, not so safe
+- Each thread has its own progarm counter, its own register and flags, stack pointer, as if they did not, they could end up overwriting other threads stack (from the same process)
+- EACH THREAD HAS IT'S OWN STACK! but they can read other threads stacks as they are all on the same process, but it's better to avoid accessing their stacks
+- All processes have at least ONE thread, that is called the `MAIN thread`
+- If the main thread exits(), the subthreads will close too...
+- The syscall to create a thread is faster and cheaper than the syscall to create a process.
+- Threads DON'T have code, they are not functions, their program counter points to the code through, that's why multiple threads can point to the same program counter
+- The "constants/consts" reside on the "TEXT" part of the process memory
+- The variables etc, pertinent to the thread, reside on their stack or the heap
 
 ## Thrashing
 - When a OS spends more time managing/switching memory/processes than running the processes itself
