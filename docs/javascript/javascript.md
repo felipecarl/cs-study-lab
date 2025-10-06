@@ -49,6 +49,12 @@
 - js will create a variable and assin a function to it (a Function Object)
 - like: var someFn = function(somePar) {someBody};
 
+  ### Arguments
+  - Inside a function, js always include a special local variable called `arguments`, which is an array
+  - a fn can be called with any number of args
+  - When the fn is called with fewer arguments that the fn has parameters the excess parameters, get the value undefined
+  - In the opposite case, the only way to access the excessive mumber of arguments is using the `arguments` array variable 
+
   ### nested functions
   - function created inside another function
   - the nested function, will be assigned to a local variable inside the parent function scope
@@ -187,7 +193,29 @@
   var jane = new Tom(2, 3);
 ```
 - `new` operator is a unary operator, which takes as is operand, a call to function, it passes newly created object to that function special parameter `this`, it returns a newly created object.
-- 
+- Every function value has a property called prototype, an object that starts empty when the function is created
+- when we invoke a function with the `new` operator, the newly created object gets linked to the this prototype object
+```js
+  function Tom(foo, bar) {
+    this.foo = foo;
+    this.bar = bar;
+  }
+  var jane = new Tom(2, 3);
+  Tom.prototype.ack = "hello";
+  var x = jane.ack; // hello
+
+```
+
+## Arrays
+- In Js, arrays are acturally objects in disguise
+- So, arrayObj[2] = "potato" is actually someting like
+  ```js
+    arrayObj {
+      2: "potato;
+    }
+  ```
+- 2 is actually a property, tha could also be accessed as arrayObj["2"]
+- The only way arrays really differ from objs is that they have a property length
 
 
 ## Strings
@@ -209,3 +237,10 @@ let y = x++;
 
 console.log(x); // 6
 console.log(y); // 5 -> old value
+
+## Exceptions
+- Js call errors exceptions
+- Usually exceptions terminate the program
+- When they happen inside a try catch block, the error/exception is caught, this allows errors handling
+- It's allow to create our own exceptions, using the reserved work `throw`
+- If exception is not caught inside the function, it will propagate to where the function was called, and the exceiption will propagate there too
