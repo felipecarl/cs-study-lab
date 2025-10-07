@@ -7,6 +7,55 @@
 - A language embedded in the browser
 - Only language in all modern web browsers
 
+## Misc: syntactic sugar
+- is a "sweeter" way of writing somethig that could be done another way
+- Example: arrow functions
+  ```js
+  // no sugar
+  const sum = function(a, b) {
+    return a + b;
+  };
+
+  // with syntactic sugar
+  const sum = (a, b) => a + b;
+  ```
+- Example2: JS Classes (before 2015 (ES6) they did not exist), nor extends
+  ```js
+  // No sugar (ES5)
+  function Animal(name) {
+    this.name = name;
+  }
+  Animal.prototype.speak = function() {
+    console.log(this.name + ' makes a noise.');
+  };
+
+  // with sugar (ES6+)
+  class Animal {
+    constructor(name) {
+      this.name = name;
+    }
+    speak() {
+      console.log(`${this.name} makes a noise.`);
+    }
+  }
+  ```
+  - Example3:
+  ```js
+  // No sugar (Promise)
+  fetchUser()
+    .then(user => fetchPosts(user.id))
+    .then(posts => console.log(posts))
+    .catch(console.error);
+
+  // With sugar (async/await)
+  try {
+    const user = await fetchUser();
+    const posts = await fetchPosts(user.id);
+    console.log(posts);
+  } catch (e) {
+    console.error(e);
+  }
+  ```
 
 ## How it works
 - Js sees the content of the page as the DOM (Document Object Model), the hierarchy of objects representing page content in web browsers

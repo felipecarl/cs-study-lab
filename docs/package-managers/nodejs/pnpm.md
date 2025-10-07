@@ -64,3 +64,6 @@ meu-projeto/
  │   └─ lodash/         (cópia completa)
  └─ package.json
 ```
+
+## Commands
+- `pnpx` or `pnpm dlx`: searches a package from the registry withotu installing it as a dependency, npx stands for "node package eXecutor", allowing packages to ben run without having to permanently install them globally
