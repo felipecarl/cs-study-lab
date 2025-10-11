@@ -137,6 +137,41 @@
 - TypeORM = TypeScript Object-Relational Mapper
 - It's a lib (ORM) that connects typescript to a relational DB, allowing working with classes/objects instead of writing pure SQL, like mongoose for mongodb
 
+## Nest CLI
+- `nest g` or `nest generate` -> `nest generate <type> <path>`
+  - it reads the decorator metadata and generates boilerplate code accordingly tto the selected option: module, controller, service, gateway(websocket), guard, interceptor, etc
+  - example: `pnpm nest g module modules/players` will create the module inside `src/modules/players/players.module.ts`
+  - `2️⃣ pnpm nest g controller modules/players --flat` will create the controller, as its using the flag `--flat`, will not create a subfolder `/controller`
+
+## Entities
+- Example
+  ```ts
+    // this decorator tells TypeORM: this class represents a table called "players on DB"
+    @Entity('players')
+    // creates a unity restriction on the db, meaning, there cannot be two registers with same email: in postgre "ALTER TABLE players ADD CONSTRAINT unique_email UNIQUE(email);"
+    @Unique(['email'])
+    export class Player {
+      //  Creates a column id that is the primary key and is self-incremental, in postgre it's a SERIAL or BIGSERIAL <id SERIAL PRIMARY KEY;>
+      @PrimaryGeneratedColumn() id: number;
+      // Creates a text column with 120char limit
+      @Column({ length: 120 }) name: string;
+      @Column({ length: 180, nullable: true }) email?: string;
+      @Column({ type: 'float', default: 0 }) rating: number; // futuro: Elo
+      @CreateDateColumn() createdAt: Date;
+      @UpdateDateColumn() updatedAt: Date;
+    }
+  ```
+- Another Example
+  ```ts
+    // a register of a table can be related to many registers of another table
+    // this decorator does NOT creates a column, just sets the relationship between entities
+    // { eager: true }: everytime a Team is searched, find the related Players, without eager, the default behaviour is lazy loading, maki ".find({ relations: ['players'] }))." necessary.
+    @ManyToMany(() => Player, { eager: true })
+    // This means, create a intermediary table called "team_players" to store this relationship
+    @JoinTable({ name: 'team_players' })
+  ```
+  - The arrow fn on the example above (`() => Player`), fixes the circular import issue, that is when two files depend on each other, otherwise typeORM would try to load Player when loading Teams, but it would not be loaded yet, as Team also depends on Player, what this arrow function does is telling typeORM that it should wait for all entities to be loaded, and then, would return the required entity. 
+
 ## Structure
 
 ### src/main.ts
@@ -153,3 +188,21 @@
 -  `const config = new DocumentBuilder()`: swagger auto documentation
 -  `await app.listen(process.env.PORT || 3000);` will start the server :D
 -  `bootstrap();` executes the main fn
+
+### src/app.module.ts
+- Is the root module of the application, where Nest loads all configs and modules
+- In nest, everything spins around Modules
+- `@Module()` decorator, tells Nest that the class is a logical container
+- `imports: [...]` lists other modules that will be loaded and be available globally inside nest
+- `ConfigModule.forRoot({ isGlobal: true })` automatically loads env vars from `.env`, creates a global provider called ConfigService, that can be injected at any location of the app
+  - `isGlobal: true` makes unecessary to import `ConfigService` around other modules, it's global automatically
+- `TypeOrmModule.forRootAsync()` configures TypeORM, for SQL DBs
+  - `forRootAsync()` indicates that the config will be async (may depend on env vars, initialization of other modules, etc)
+  - Inside the forRootAsync
+    - `inject: [ConfigService]` tells nest "before running `useFactory`, inject the instance of ConfigService here, that means, nest resolves ConfigService using DI
+    - `useFactory: (cfg: ConfigService) => ({ ... })` is a configuration factory, a fn that returns the configuration object of the TypeORM, inside of it the cfg (ConfigService) is used to read env vars dynamically, it returns something like a default `ormconfig.js`
+    - `type: 'postgres'` -> sets db driver
+    - `url` -> complete connection string (user, password, host, db)
+    - `autoLoadEntities` -> register all entities (@Entity) without having to list them manually
+    - `synchronize: false` -> should never be `true` in production, as it creates/modify automatically based on entities, only useful in dev
+    - `logging: true` -> logs executed SQL queries, good for debugging
